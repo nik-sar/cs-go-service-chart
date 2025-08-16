@@ -1,0 +1,23 @@
+name: Publish Helm chart
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Package Helm chart
+        run: |
+          helm package cs-go-service-chart
+          helm repo index . --url https://github.com/nik-sar/cs-go-service-chart
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
