@@ -42,3 +42,7 @@ spec:
                   name: {{ .configName }}
                   key: {{ .key }}
             {{- end}}
+            {{- range .Values.environments }}
+            - name: {{ .envName }}
+              value: {{ .envValue }}
+            {{- end}}
