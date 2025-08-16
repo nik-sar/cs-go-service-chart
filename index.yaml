@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  cs-go-service-chart:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-08-16T21:00:05.437816319Z"
+    description: Go service chart with Deployment, Service, and Ingress
+    digest: 721c2a5080f0e260712eab326f5b93065a02086e5c591d58baa8f6715cace1b4
+    name: cs-go-service-chart
+    type: application
+    urls:
+    - https://github.com/nik-sar/cs-go-service-chart/cs-go-service-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-08-16T21:00:05.432668325Z"
