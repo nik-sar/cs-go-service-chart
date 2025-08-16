@@ -20,6 +20,10 @@ configMaps:
   - envName: SAMPLE_ENV
     configName: sample-config-name
     key: sample-key
+    
+environments:
+  - envName: SAMPLE_ENV
+    envValue: 1
 
 service:
   type: ClusterIP
