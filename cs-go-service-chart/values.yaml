@@ -1,0 +1,36 @@
+replicaCount: 1
+limits:
+  memory: "256Mi"
+  cpu: "200m"
+requests:
+  memory: "100Mi"
+  cpu: "100m"
+
+image:
+  name: sample.host/sample-svc
+  tag: stable
+  pullPolicy: IfNotPresent
+
+secrets:
+  - envName: SAMPLE_ENV
+    secretName: sample-secret-name
+    key: sample-key
+
+configMaps:
+  - envName: SAMPLE_ENV
+    configName: sample-config-name
+    key: sample-key
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+ingress:
+  enabled: false
+  rewriteTarget: "/api/rest"
+  hosts:
+    - host: "sample.host"
+      paths:
+        - path: "/api/rest"
+          pathType: Prefix
