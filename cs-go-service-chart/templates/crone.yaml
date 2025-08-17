@@ -1,6 +1,6 @@
 {{- range .Values.crones }}
 {{- if .enabled }}
---
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -24,7 +24,7 @@ spec:
               args:
                 {{- range .image.args }}
                 - "{{ . | quote }}" # quote - экранирует сложные строки (например, пробелы, кавычки)
-                {{- end}}
+                {{- end }}
           restartPolicy: OnFailure
-{{- end}}
-{{- end}}
+{{- end }}
+{{- end }}
