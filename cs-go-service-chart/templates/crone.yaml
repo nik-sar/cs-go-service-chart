@@ -1,0 +1,30 @@
+{{- range .Values.crones }}
+{{- if .enabled }}
+--
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .name }}-cronjob
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .name }}
+    app.kubernetes.io/instance: {{ $.Release.Name }}
+spec:
+  schedule: "{{ .schedule }}"
+  successfulJobsHistoryLimit: 0   # ← Удалять успешные Job'ы сразу
+  failedJobsHistoryLimit: 1       # ← Оставить только 1 неуспешную Job
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: {{ .name }}
+              image: "{{ .image.name }}:{{ .image.tag }}"
+              imagePullPolicy: IfNotPresent
+              args:
+                {{- range .image.args }}
+                - "{{ . | quote }}" # quote - экранирует сложные строки (например, пробелы, кавычки)
+                {{- end}}
+          restartPolicy: OnFailure
+{{- end}}
+{{- end}}
