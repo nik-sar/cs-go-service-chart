@@ -25,6 +25,18 @@ environments: []
 #  - envName: SAMPLE_ENV
 #    envValue: "1"
 
+crones: []
+#  - name: sample-crone
+#    enabled: true
+#    schedule: "0 */2 * * *"
+#    image:
+#      name: "curlimages/curl"
+#      tag: "1.0.3"
+#      args: 
+#        - "-X"
+#        - "POST"
+#        - "sample/cron"
+
 service:
   type: ClusterIP
   port: 8080
