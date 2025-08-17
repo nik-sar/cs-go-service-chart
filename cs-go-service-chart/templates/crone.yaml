@@ -23,7 +23,7 @@ spec:
               imagePullPolicy: IfNotPresent
               args:
                 {{- range .image.args }}
-                - "{{ . | quote }}" # quote - экранирует сложные строки (например, пробелы, кавычки)
+                - {{ . | quote }} # quote - экранирует сложные строки (например, пробелы, кавычки)
                 {{- end }}
           restartPolicy: OnFailure
 {{- end }}
