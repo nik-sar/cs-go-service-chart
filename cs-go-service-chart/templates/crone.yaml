@@ -22,9 +22,9 @@ spec:
               image: "{{ .image.name }}:{{ .image.tag }}"
               imagePullPolicy: IfNotPresent
               args:
-                {{- range .image.args }}
+              {{- range .image.args }}
                 - {{ . | quote }} # quote - экранирует сложные строки (например, пробелы, кавычки)
-                {{- end }}
+              {{- end }}
           restartPolicy: OnFailure
 {{- end }}
 {{- end }}
