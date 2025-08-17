@@ -3,12 +3,12 @@ entries:
   cs-go-service-chart:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-17T20:17:25.369495084Z"
+    created: "2025-08-17T20:26:36.637795038Z"
     description: Go service chart with Deployment, Service, and Ingress
-    digest: 1b8b90553904dcfd5fe0fe158e97b28e0ad3389ef0eeb8420886aa39d31ac107
+    digest: 319e231cda50d60e29db68e8e81007daea9a8ef5075063497d3191bc31b5ba9e
     name: cs-go-service-chart
     type: application
     urls:
     - https://nik-sar.github.io/cs-go-service-chart/cs-go-service-chart-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-17T20:17:25.365668044Z"
+generated: "2025-08-17T20:26:36.632332894Z"
