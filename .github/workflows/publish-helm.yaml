@@ -14,7 +14,7 @@ jobs:
       - name: Package Helm chart
         run: |
           helm package cs-go-service-chart
-          helm repo index . --url https://github.com/nik-sar/cs-go-service-chart
+          helm repo index . --url https://nik-sar.github.io/cs-go-service-chart
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
