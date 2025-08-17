@@ -11,19 +11,19 @@ image:
   tag: stable
   pullPolicy: IfNotPresent
 
-secrets:
-  - envName: SAMPLE_ENV
-    secretName: sample-secret-name
-    key: sample-key
+secrets: []
+#  - envName: SAMPLE_ENV
+#    secretName: sample-secret-name
+#    key: sample-key
 
-configMaps:
-  - envName: SAMPLE_ENV
-    configName: sample-config-name
-    key: sample-key
+configMaps: []
+#  - envName: SAMPLE_ENV
+#    configName: sample-config-name
+#    key: sample-key
     
-environments:
-  - envName: SAMPLE_ENV
-    envValue: 1
+environments: []
+#  - envName: SAMPLE_ENV
+#    envValue: "1"
 
 service:
   type: ClusterIP
