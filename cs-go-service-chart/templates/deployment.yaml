@@ -46,3 +46,7 @@ spec:
             - name: {{ .envName }}
               value: "{{ .envValue }}"
             {{- end}}
+      imagePullSecrets:
+        {{- range .Values.imagePullSecrets}}
+        - name: {{ .name }}
+        {{- end}}
