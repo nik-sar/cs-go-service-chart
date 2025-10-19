@@ -37,6 +37,9 @@ crones: []
 #        - "POST"
 #        - "sample/cron"
 
+imagePullSecrets: []
+#  - name: docker-registry-secret-name
+
 service:
   type: ClusterIP
   port: 8080
