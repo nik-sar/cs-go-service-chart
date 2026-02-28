@@ -1,16 +1,17 @@
 {{- if .Values.ingress.enabled }}
+{{- range $idx, $rule := .Values.ingress.rules }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-ingress-{{ .Release.Namespace }}
-  namespace: {{ .Release.Namespace }}
+  name: {{ $.Release.Name }}-ingress-{{ $.Release.Namespace }}-{{ $idx }}
+  namespace: {{ $.Release.Namespace }}
   annotations:
-    haproxy-ingress.github.io/rewrite-target: {{ .Values.ingress.rewriteTarget }}
+    haproxy-ingress.github.io/rewrite-target: {{ $rule.rewriteTarget }}
 spec:
   ingressClassName: haproxy
   rules:
-    {{- range .Values.ingress.hosts }}
+    {{- range $rule.hosts }}
     - host: {{ .host }}
       http:
         paths:
@@ -22,6 +23,7 @@ spec:
                 name: {{ $.Release.Name }}-svc-{{ $.Release.Namespace }}
                 port:
                   number: {{ $.Values.service.port }}
-          {{- end}}
-    {{- end}}
-{{- end}}
+          {{- end }}
+    {{- end }}
+{{- end }}
+{{- end }}

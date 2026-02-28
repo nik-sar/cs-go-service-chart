@@ -47,9 +47,10 @@ service:
 
 ingress:
   enabled: false
-  rewriteTarget: "/api/rest"
-  hosts:
-    - host: "sample.host"
-      paths:
-        - path: "/api/rest"
-          pathType: Prefix
+  rules:
+    - rewriteTarget: "/api/rest"
+      hosts:
+        - host: "sample.host"
+          paths:
+            - path: "/api/rest"
+              pathType: Prefix
